@@ -1,0 +1,25 @@
+/* 设置所有元素使用 border-box，清除默认 margin 和 padding */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 清除无序列表和有序列表的默认样式 */
+ul, ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* 清除链接的下划线和默认颜色 */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+input {
+    outline: none;
+}
