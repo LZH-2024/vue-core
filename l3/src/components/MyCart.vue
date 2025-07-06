@@ -1,36 +1,38 @@
 <script>
 
+const defaultFruitList = [
+  {
+    id: 1,
+    img: require("@/assets/img/榴莲.png"),
+    price: 30,
+    num: 0,
+    subtotal: 0,
+    select: false
+  },
+  {
+    id: 2,
+    img: require("@/assets/img/火龙果.png"),
+    price: 10,
+    num: 0,
+    subtotal: 0,
+    select: false
+  },
+  {
+    id: 3,
+    img: require("@/assets/img/樱桃.png"),
+    price: 20,
+    num: 0,
+    subtotal: 0,
+    select: false
+  },
+]
+
 export default {
   name: "MyCart",
   data () {
     return {
       allSelected: false,
-      fruitList: [
-        {
-          id: 1,
-          img: require("@/assets/img/榴莲.png"),
-          price: 30,
-          num: 0,
-          subtotal: 0,
-          select: false
-        },
-        {
-          id: 2,
-          img: require("@/assets/img/火龙果.png"),
-          price: 10,
-          num: 0,
-          subtotal: 0,
-          select: false
-        },
-        {
-          id: 3,
-          img: require("@/assets/img/樱桃.png"),
-          price: 20,
-          num: 0,
-          subtotal: 0,
-          select: false
-        },
-      ]
+      fruitList: JSON.parse(localStorage.getItem("fruitList")) || defaultFruitList
     }
   },
   methods: {
@@ -86,6 +88,14 @@ export default {
           return acc
         }
       }, 0)
+    }
+  },
+  watch: {
+    fruitList: {
+      deep: true,
+      handler (val) {
+        localStorage.setItem('fruitList', JSON.stringify(val))
+      }
     }
   }
 }
