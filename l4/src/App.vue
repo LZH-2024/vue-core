@@ -14,7 +14,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item,index in billList" :key="item.id">
+        <tr v-for="(item,index) in billList" :key="item.id">
           <td>{{ index + 1 }}</td>
           <td>{{ item.name }}</td>
           <td>{{ item.price }}</td>
