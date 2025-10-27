@@ -1,6 +1,6 @@
 import Vue from 'vue'
 // import { Button } from 'vant'
-import { Tabbar, TabbarItem } from 'vant'
+import { Tabbar, TabbarItem, Form, Field, Button, NavBar } from 'vant'
 
 // vant-ui全部导入
 // import Vant from 'vant'
@@ -10,3 +10,7 @@ import { Tabbar, TabbarItem } from 'vant'
 // Vue.use(Button)
 Vue.use(Tabbar)
 Vue.use(TabbarItem)
+Vue.use(Form)
+Vue.use(Field)
+Vue.use(Button)
+Vue.use(NavBar)
