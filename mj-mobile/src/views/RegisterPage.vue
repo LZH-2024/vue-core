@@ -1,4 +1,6 @@
 <script>
+import request from '@/utils/request'
+
 export default {
   name: 'RegisterPage',
   data () {
@@ -10,8 +12,10 @@ export default {
   methods: {
     // 监听表单提交事件，传入输入框中输入的值
     // value eg: {username: 'lzh', password: '12345'}
-    onSubmit (value) {
-      console.log(value)
+    async onSubmit (value) {
+      // 发送注册请求
+      const res = await request.post('/user/register', value)
+      console.log(res)
     }
   }
 }
