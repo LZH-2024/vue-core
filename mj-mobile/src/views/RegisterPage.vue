@@ -1,5 +1,6 @@
 <script>
 import { register } from '@/api/user'
+import { Toast } from 'vant'
 
 export default {
   name: 'RegisterPage',
@@ -14,8 +15,13 @@ export default {
     // value eg: {username: 'lzh', password: '12345'}
     async onSubmit (value) {
       // 发送注册请求
-      const res = await register(value)
-      console.log(res)
+      try {
+        await register(value)
+        Toast.success('注册成功')
+        this.$router.push('/login')
+      } catch (e) {
+        Toast.fail('注册失败')
+      }
     }
   }
 }
