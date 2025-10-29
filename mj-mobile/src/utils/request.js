@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { Toast } from 'vant'
 
 // 官网文档
 // 创建实例
@@ -22,13 +23,17 @@ instance.interceptors.request.use(
   })
 
 // 添加响应拦截器
-axios.interceptors.response.use(
+instance.interceptors.response.use(
   // 对响应数据处理
   response => {
     return response
   },
   // 响应错误处理
   error => {
+    // 如果有错误响应，提取后台错误信息，提示
+    if (error.response) {
+      Toast(error.response.data.message)
+    }
     return Promise.reject(error)
   }
 )

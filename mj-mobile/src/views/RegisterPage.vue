@@ -15,13 +15,9 @@ export default {
     // value eg: {username: 'lzh', password: '12345'}
     async onSubmit (value) {
       // 发送注册请求
-      try {
-        await register(value)
-        Toast.success('注册成功')
-        this.$router.push('/login')
-      } catch (e) {
-        Toast.fail('注册失败')
-      }
+      await register(value)
+      Toast.success('注册成功')
+      this.$router.push('/login')
     }
   }
 }
