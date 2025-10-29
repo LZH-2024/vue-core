@@ -1,5 +1,5 @@
 <script>
-import request from '@/utils/request'
+import { register } from '@/api/user'
 
 export default {
   name: 'RegisterPage',
@@ -14,7 +14,7 @@ export default {
     // value eg: {username: 'lzh', password: '12345'}
     async onSubmit (value) {
       // 发送注册请求
-      const res = await request.post('/user/register', value)
+      const res = await register(value)
       console.log(res)
     }
   }
