@@ -1,6 +1,7 @@
 <script>
 import { login } from '@/api/user'
 import { Toast } from 'vant'
+import { setToken } from '@/utils/storage'
 
 export default {
   name: 'LoginPage',
@@ -19,7 +20,7 @@ export default {
       // 成功提示
       Toast.success('登录成功')
       // 保存token
-      localStorage.setItem('vant-mobile-exp-user-token', res.data.data.token)
+      setToken(res.data.data.token)
       // 跳转首页
       this.$router.push('/layout')
     }
