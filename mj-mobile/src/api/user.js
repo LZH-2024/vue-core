@@ -7,3 +7,9 @@ export const register = (data) => {
   // 将请求的Promise对象返回
   return request.post('/user/register', data)
 }
+
+// 用户登录
+export const login = (data) => {
+  // 用户登录请求
+  return request.post('/user/login', data)
+}
