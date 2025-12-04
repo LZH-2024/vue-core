@@ -8,6 +8,7 @@ import ArticlePage from '@/views/ArticlePage.vue'
 import LikePage from '@/views/LikePage.vue'
 import CollectPage from '@/views/CollectPage.vue'
 import UserPage from '@/views/UserPage.vue'
+import { getToken } from '@/utils/storage'
 
 Vue.use(VueRouter)
 
@@ -52,6 +53,24 @@ const routes = [
 // 创建路由
 const router = new VueRouter({
   routes
+})
+
+// 配置路由前置守卫
+// to 去哪里
+// from 从哪来
+// next()调用放行 or next(路径)拦截跳转
+router.beforeEach((to, from, next) => {
+  const token = getToken()
+  if (token) {
+    next()
+  } else {
+    const whiteList = ['/login', '/register']
+    if (whiteList.includes(to.path)) {
+      next()
+    } else {
+      next('/login')
+    }
+  }
 })
 
 export default router

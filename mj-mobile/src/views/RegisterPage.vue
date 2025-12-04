@@ -60,7 +60,7 @@ export default {
     </van-form>
 
     <!--注册链接-->
-    <router-link class="link" to="/register">有账号，去登录</router-link>
+    <router-link class="link" to="/login">有账号，去登录</router-link>
   </div>
 </template>
 
